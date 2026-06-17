@@ -20,14 +20,14 @@ void ConsoleMenu::show() {
     for (size_t i = 0; i < items.size(); i++) {
         cout << i + 1 << ". " << items[i].label << "\n";
     }
-    cout << "0. Âûõîä\n\n";
-    cout << "Âûáåðèòå ïóíêò: ";
+    cout << "0. Ð’Ñ‹Ñ…Ð¾Ð´\n\n";
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿ÑƒÐ½ÐºÑ‚: ";
 }
 
 void ConsoleMenu::handleInput(int choice) {
     if (choice == 0) {
         isRunning = false;
-        cout << "Âûõîä èç ïðîãðàììû.\n";
+        cout << "Ð’Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹.\n";
         return;
     }
 
@@ -35,7 +35,7 @@ void ConsoleMenu::handleInput(int choice) {
         items[choice - 1].action();
     }
     else {
-        cout << "Íåâåðíûé âûáîð! Ïîïðîáóéòå ñíîâà.\n";
+        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€! ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°.\n";
     }
     waitForEnter();
 }
@@ -51,7 +51,7 @@ void ConsoleMenu::run() {
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Ââåäèòå ÷èñëî!\n";
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾!\n";
             waitForEnter();
             continue;
         }
@@ -73,7 +73,7 @@ void ConsoleMenu::clearScreen() const {
 }
 
 void ConsoleMenu::waitForEnter() const {
-    cout << "\nÍàæìèòå Enter äëÿ ïðîäîëæåíèÿ...";
+    cout << "\nÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Enter Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶ÐµÐ½Ð¸Ñ...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
 }
@@ -94,7 +94,7 @@ int getIntInput(const string& prompt, int min, int max) {
         if (cin.fail() || value < min || value > max) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Îøèáêà! Ââåäèòå ÷èñëî îò " << min << " äî " << max << "\n";
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¾Ñ‚ " << min << " Ð´Ð¾ " << max << "\n";
         }
         else {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');

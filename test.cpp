@@ -7,30 +7,30 @@ using namespace std;
 
 void testMenuItem() {
     bool executed = false;
-    MenuItem item("Òåñò", [&]() { executed = true; });
-    assert(item.label == "Òåñò");
+    MenuItem item("Ğ¢ĞµÑÑ‚", [&]() { executed = true; });
+    assert(item.label == "Ğ¢ĞµÑÑ‚");
     item.action();
     assert(executed == true);
     cout << "testMenuItem: OK\n";
 }
 
 void testConsoleMenu() {
-    ConsoleMenu menu("Òåñòîâîå ìåíş");
+    ConsoleMenu menu("Ğ¢ĞµÑÑ‚Ğ¾Ğ²Ğ¾Ğµ Ğ¼ĞµĞ½Ñ");
     assert(menu.getItemCount() == 0);
 
-    menu.addItem("Ïóíêò 1", []() {});
-    menu.addItem("Ïóíêò 2", []() {});
+    menu.addItem("ĞŸÑƒĞ½ĞºÑ‚ 1", []() {});
+    menu.addItem("ĞŸÑƒĞ½ĞºÑ‚ 2", []() {});
     assert(menu.getItemCount() == 2);
 
     cout << "testConsoleMenu: OK\n";
 }
 
 void testHandleInput() {
-    ConsoleMenu menu("Òåñò");
+    ConsoleMenu menu("Ğ¢ĞµÑÑ‚");
     bool flag1 = false, flag2 = false;
 
-    menu.addItem("Ïóíêò 1", [&]() { flag1 = true; });
-    menu.addItem("Ïóíêò 2", [&]() { flag2 = true; });
+    menu.addItem("ĞŸÑƒĞ½ĞºÑ‚ 1", [&]() { flag1 = true; });
+    menu.addItem("ĞŸÑƒĞ½ĞºÑ‚ 2", [&]() { flag2 = true; });
 
     menu.handleInput(1);
     assert(flag1 == true);
@@ -42,16 +42,16 @@ void testHandleInput() {
 }
 
 void testGetInputLine() {
-    cout << "testGetInputLine: ïğîïóùåí (òğåáóåò ğó÷íîãî ââîäà)\n";
+    cout << "testGetInputLine: Ğ¿Ñ€Ğ¾Ğ¿ÑƒÑ‰ĞµĞ½ (Ñ‚Ñ€ĞµĞ±ÑƒĞµÑ‚ Ñ€ÑƒÑ‡Ğ½Ğ¾Ğ³Ğ¾ Ğ²Ğ²Ğ¾Ğ´Ğ°)\n";
 }
 
 void runAllTests() {
-    cout << "=== ÇÀÏÓÑÊ ÒÅÑÒÎÂ ===\n";
+    cout << "=== Ğ—ĞĞŸĞ£Ğ¡Ğš Ğ¢Ğ•Ğ¡Ğ¢ĞĞ’ ===\n";
     testMenuItem();
     testConsoleMenu();
     testHandleInput();
     testGetInputLine();
-    cout << "=== ÂÑÅ ÒÅÑÒÛ ÏĞÎÉÄÅÍÛ ===\n";
+    cout << "=== Ğ’Ğ¡Ğ• Ğ¢Ğ•Ğ¡Ğ¢Ğ« ĞŸĞ ĞĞ™Ğ”Ğ•ĞĞ« ===\n";
 }
 
 int main() {
