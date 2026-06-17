@@ -5,30 +5,29 @@
 using namespace std;
 
 int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
 
-    SetConsoleCP(1251);      
-    SetConsoleOutputCP(1251); 
-
-    ConsoleMenu menu("Ãëàâíîå ìåíþ");
-
-    menu.addItem("Ïðèâåòñòâèå", []() {
-        cout << "\nÏðèâåò, ìèð!\n";
-        });
-
-    menu.addItem("Ââîä èìåíè", []() {
+    ConsoleMenu menu("Главное меню");
+    
+    menu.addItem("Приветствие", []() {
+        cout << "\nПривет, мир!\n";
+    });
+    
+    menu.addItem("Ввод имени", []() {
         string name;
-        cout << "Ââåäèòå âàøå èìÿ: ";
+        cout << "Введите ваше имя: ";
         cin.ignore();
         getline(cin, name);
-        cout << "Ïðèâåò, " << name << "!\n";
-        });
-
-    menu.addItem("Êàëüêóëÿòîð", []() {
-        int a = getIntInput("Ââåäèòå ïåðâîå ÷èñëî: ", -1000, 1000);
-        int b = getIntInput("Ââåäèòå âòîðîå ÷èñëî: ", -1000, 1000);
-        cout << "Ñóììà: " << a + b << "\n";
-        });
-
+        cout << "Привет, " << name << "!\n";
+    });
+    
+    menu.addItem("Калькулятор", []() {
+        int a = getIntInput("Введите первое число: ", -1000, 1000);
+        int b = getIntInput("Введите второе число: ", -1000, 1000);
+        cout << "Сумма: " << a + b << "\n";
+    });
+    
     menu.run();
     return 0;
 }
